@@ -1,0 +1,338 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    font-family: variables.$primary-font
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    
+body
+    @include mixins.bg-img('background.jpg')
+    background-attachment: fixed
+    background-size: cover
+         
+    a
+        color: variables.$primary-color
+        text-decoration: none
+
+    ul
+        list-style: none
+
+.header
+    display: flex
+    justify-content: space-between
+    @include mixins.container
+    @include mixins.text-shadow-color
+    padding: 1.5rem 0
+
+    &-brand
+        font-size: 3rem
+        font-weight: 700
+        z-index: 50
+
+    &-navbar
+        ul
+            height: 100%
+            @include mixins.flex-center
+
+        li
+            margin: 0 1rem
+            text-transform: uppercase
+            font-size: 1.5rem
+
+            .active
+                color: variables.$secondary-color
+
+            a
+                &:hover
+                    color: variables.$secondary-color
+
+        @include mixins.tablet
+            display: none
+
+            ul
+                position: absolute
+                left: 0
+                bottom: 0
+                width: 100vh
+                height: 100vh
+                @include mixins.bg-img('menu-bg.jpg')
+                background-size: cover
+                flex-direction: column
+                justify-content: space-around
+                padding-top: 7rem
+                
+
+            li
+                a
+                    border-bottom: 3px double variables.$primary-color
+                    border-top: 3px double variables.$primary-color
+                    font-size: 3rem
+                    font-weight: 700
+                    
+                    &:hover
+                        border-bottom: 3px double variables.$secondary-color
+                        border-top: 3px double variables.$secondary-color
+
+
+    &-social-media
+
+        ul
+            @include mixins.flex-center
+            height: 100%
+            font-size: 1.3rem
+
+            li
+                margin: 0 0.7rem
+
+                a
+                    &:hover
+                        color: variables.$secondary-color
+
+        @include mixins.tablet
+            display: none
+    
+    &-mobile-menu
+        @include mixins.flex-center
+        display: none
+        font-size: 1rem
+        z-index: 50
+        
+        &:hover
+            color: variables.$secondary-color
+
+        @include mixins.tablet
+            display: flex
+
+.main
+    @include mixins.container
+    color: variables.$tertiary-color
+
+    @include mixins.tablet
+        max-width: 90%
+    
+
+    a
+        color: variables.$tertiary-color
+
+    &-title
+        text-align: center
+        @include mixins.text-shadow-color
+        margin: 8rem 0
+
+        h1
+            margin: 4rem 0
+            font-size: 3rem
+            font-weight: 700
+            
+
+        p
+            font-size: 1.5rem
+            font-family: variables.$secondary-font
+            margin-bottom: 5rem
+
+.pagination
+
+    background-color: variables.$primary-color
+    @include mixins.flex-center
+    font-weight: 700
+    padding-bottom: 3rem
+
+    &-page
+        
+        @include mixins.flex-center
+        border: 1px solid variables.$quartenary-color
+        height: 3rem
+        width: 3rem
+
+        &:hover
+            color: variables.$secondary-color
+            border: 2px solid variables.$secondary-color
+
+
+    &-active
+        background-color: variables.$quartenary-color
+
+        
+
+.gallery
+    background-color: variables.$primary-color
+    @include mixins.flex-center
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 4% 4% 0 4%
+
+    &-card 
+        width: 31%
+        aspect-ratio: 1 / 1
+        margin-bottom: 4%
+        @include mixins.flex-center
+        @include mixins.text-shadow-color
+        flex-direction: column
+        color: variables.$primary-color
+        background-color: variables.$tertiary-color
+        text-transform: uppercase
+
+        @include mixins.mobile
+            width: 49%
+
+        a
+            display: none
+            color: variables.$primary-color
+
+        &-title
+            font-size: 1.3rem
+            font-weight: 800
+            margin-bottom: 1rem
+
+        &-btn
+            padding: .6rem 2rem
+            border: 3px solid variables.$primary-color
+            color: variables.$primary-color
+            font-weight: 600
+            font-size: 0.8rem
+            letter-spacing: 1px
+
+        &:hover
+
+            a
+                display: block
+                
+            h2
+                display: none
+
+    #card-1
+        @include mixins.bg-img('animals.jpg')
+
+    #card-2
+        @include mixins.bg-img('architecture.jpg')
+
+    #card-3
+        @include mixins.bg-img('cities.jpg')
+  
+    #card-4
+        @include mixins.bg-img('jobs.jpg')
+
+    #card-5
+        @include mixins.bg-img('sports.jpg')
+  
+    #card-6
+        @include mixins.bg-img('nature.jpg')
+
+    #card-7
+        @include mixins.bg-img('panorama.jpg')
+
+    #card-8
+        @include mixins.bg-img('people.jpg')
+
+    #card-9
+        @include mixins.bg-img('food.jpg')
+
+.footer
+
+    @include mixins.container
+    background-color: variables.$primary-color
+    display: flex
+    justify-content: space-around
+    margin: 0 auto
+
+    @include mixins.tablet
+        max-width: 90%
+
+    @include mixins.mobile
+        flex-direction: column
+
+    &-right
+
+        border-left: 1px solid variables.$tertiary-color
+
+        @include mixins.mobile
+            border-left: none
+
+    &-section
+
+        width: 100%
+        height: 650px
+        padding: 0 4%
+        display: flex
+        flex-direction: column
+        justify-content: space-around   
+
+        @include mixins.mobile
+            justify-content: space-between     
+        
+        section
+
+            display: flex
+            align-items: center
+            height: 100%    
+            border-bottom: 1px solid variables.$tertiary-color
+
+            @include mixins.mobile
+                border-bottom: none
+                border-top: 1px solid variables.$tertiary-color
+                    
+            h3
+                color: variables.$tertiary-color
+
+            p 
+                padding-left: 1rem      
+            
+            a
+                color: variables.$tertiary-color
+
+                &:hover
+                    color: variables.$secondary-color     
+
+.icons-media
+    display: flex
+    
+.fa-brands
+    padding-left: 1rem       
+
+.field
+    display: flex
+    flex-direction: column
+    margin: 2rem 0
+
+label
+    
+    @include mixins.label
+
+input
+
+    @include mixins.input-textarea-style
+
+textarea
+
+    @include mixins.input-textarea-style
+
+.copyright
+    text-align: center
+    @include mixins.text-shadow-color
+    padding: 1% 0
+
+    a
+        text-decoration: underline
+
+        i
+            font-size: 1.2rem
+            padding-left: 0
+
+    a:hover
+        color: variables.$secondary-color
+
+.show
+    display: flex
+
+    
+
+
+
+
+    
+    
+
+    
+                        

@@ -1,0 +1,51 @@
+@use 'variables'
+
+@mixin bg-img($img)
+  background-image: url('../img/#{$img}')
+  background-size: 100%
+  background-position: center
+  background-repeat: no-repeat
+  transition: .6s
+
+@mixin container
+  max-width: variables.$container-width
+  margin: 0 auto
+
+@mixin flex-center
+  display: flex
+  align-items: center
+  justify-content: center
+
+@mixin text-shadow-color
+  text-shadow: 0px 0px 7px black
+  color: variables.$primary-color
+
+@mixin label
+  font-weight: 1000
+  font-size: 0.8rem
+  margin-bottom: 0.5rem
+  letter-spacing: 1px
+  color: variables.$tertiary-color
+
+@mixin input-textarea-style
+  @include label
+  font-size: 1rem
+  background: none
+  padding: 1rem 2rem
+  border: 2px solid variables.$tertiary-color
+
+  &:hover
+    border-color: variables.$secondary-color
+    color: variables.$secondary-color
+
+  &:focus
+    outline: none
+    border-color: variables.$secondary-color
+
+@mixin tablet
+  @media (max-width: 1023px)
+    @content
+
+@mixin mobile
+  @media (max-width: 767px)
+    @content
