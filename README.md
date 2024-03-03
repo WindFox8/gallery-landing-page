@@ -1,5 +1,5 @@
 # gallery-landing-page
-Landing page of a Zoo made with HTML, SASS, JS.
+Responsive landing page for a photo gallery made in HTML, SASS, JS.
 
 link: https://windfox8.github.io/gallery-landing-page/
 
